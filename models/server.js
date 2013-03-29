@@ -25,6 +25,8 @@ function Server() {
       http.get(server, function(res) {
         servers[server] = res.statusCode === 200;
         if(i < len) next();
+      }).on('error', function() {
+        servers[server] = false;
       });
     };
 
