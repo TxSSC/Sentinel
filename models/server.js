@@ -15,8 +15,6 @@ function Server() {
       f = fs.readFileSync(path.join(__dirname, '../config.json')),
       config = JSON.parse(f);
 
-  console.log(config);
-
   (function poll(servers, config) {
     var i = 0,
         len = config.servers.length;
