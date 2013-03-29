@@ -1,5 +1,5 @@
 # Sentinel
-Monitor site status (*up or down*).
+Monitor site status *(up or down)*.
 
 ## Installation
 ```shell
