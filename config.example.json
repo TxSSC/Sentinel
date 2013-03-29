@@ -1,0 +1,7 @@
+{
+  "servers": [
+    "http://google.com",
+    "http://github.com"
+  ],
+  "interval": 150000
+}
