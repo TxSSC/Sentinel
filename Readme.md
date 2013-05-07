@@ -1,10 +1,28 @@
 # Sentinel
 Monitor site status *(up or down)*.
 
+
 ## Installation
 ```shell
 git clone git@github.com:TxSSC/Sentinel.git && cd Sentinel && mv config.example.json config.json
 ```
+
+## Configuration
+`config.json` currently supports:
+
+**interval** - `Number`
+> sets the interval at which to poll servers
+
+**servers** - `Array`
+> array of absolute urls that sentinel will poll for a `200` status reponse, take note that this should be the actual endpoint
+
+
+## Running
+```shell
+npm install
+npm start
+```
+
 
 ## License (MIT)
 Copyright (c) 2013 TxSSC
