@@ -30,7 +30,7 @@ var cors = function(req, res, next) {
  */
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.SENTINEL_PORT || 3000);
   app.use(express.bodyParser());
   app.use(cors);
   app.use(app.router);
