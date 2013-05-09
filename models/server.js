@@ -19,7 +19,7 @@ function Server() {
     var i = 0,
         len = config.servers.length;
 
-    setTimeout(poll, config.interval || 300000);
+    setTimeout(poll.bind(null, servers, config), config.interval || 300000);
 
     var fetch = function(server) {
       http.get(server, function(res) {
