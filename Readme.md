@@ -23,6 +23,12 @@ npm install
 npm start
 ```
 
+## Running tests
+Rename `config.example.json` to `config.json` with `mv config.example.json config.json`.
+```shell
+npm test
+```
+
 
 ## License (MIT)
 Copyright (c) 2013 TxSSC
