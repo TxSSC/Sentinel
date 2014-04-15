@@ -1,4 +1,4 @@
-# Sentinel
+# Sentinel [![Build Status](https://travis-ci.org/TxSSC/Sentinel.svg?branch=master)](https://travis-ci.org/TxSSC/Sentinel)
 Monitor site status *(up or down)*.
 
 
