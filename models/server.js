@@ -13,29 +13,35 @@ var fs = require('fs'),
 function Server() {
   var servers = {},
       f = fs.readFileSync(path.join(__dirname, '../config.json')),
-      config = JSON.parse(f);
+      config = JSON.parse(f),
+      keys = Object.keys(config.servers),
+      len = keys.length;
 
-  (function poll(servers, config) {
-    var i = 0,
-        len = config.servers.length;
+  function poll() {
+    var i = 0;
 
-    setTimeout(poll.bind(null, servers, config), config.interval || 300000);
+    var fetch = function(key) {
+      var server = config.servers[key];
 
-    var fetch = function(server) {
-      http.get(server, function(res) {
-        servers[server] = res.statusCode === 200;
+      http.get(server.url, function(res) {
+        console.log(res.statusCode);
+        servers[key] = res.statusCode === 200;
         if(i < len) next();
       }).on('error', function() {
-        servers[server] = false;
+        servers[key] = false;
       });
     };
 
     var next = function() {
-      return fetch(config.servers[i++]);
+      return fetch(keys[i++]);
     };
 
+    setTimeout(poll, config.interval || 300000);
     return next();
-  })(servers, config);
+  }
+
+  // Start polling
+  poll();
 
   return {
     all: function() {

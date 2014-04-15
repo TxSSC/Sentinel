@@ -1,7 +1,11 @@
 {
-  "servers": [
-    "http://google.com",
-    "http://github.com"
-  ],
-  "interval": 150000
+  "interval": 150000,
+  "servers": {
+    "Texas State University": {
+      "url": "http://www.txstate.edu"
+    },
+    "Texas School Safety Center": {
+      "url": "http://txssc.txstate.edu"
+    }
+  }
 }

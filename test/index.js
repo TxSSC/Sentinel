@@ -27,8 +27,8 @@ describe('Sentinel', function() {
       .get('/')
       .expect(200)
       .end(function(err, res) {
-        res.body.should.have.property("http://www.google.com", true);
-        res.body.should.have.property("http://txssc.txstate.edu", true);
+        res.body.should.have.property("Texas State University", true);
+        res.body.should.have.property("Texas School Safety Center", true);
 
         return done(err);
       });
