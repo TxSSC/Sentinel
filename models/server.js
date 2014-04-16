@@ -24,7 +24,6 @@ function Server() {
       var server = config.servers[key];
 
       http.get(server.url, function(res) {
-        console.log(res.statusCode);
         servers[key] = res.statusCode === 200;
         if(i < len) next();
       }).on('error', function() {
