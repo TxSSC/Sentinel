@@ -3,6 +3,7 @@
  */
 
 var fs = require('fs'),
+    url = require('url'),
     http = require('http'),
     https = require('https'),
     path = require('path');
@@ -23,9 +24,10 @@ function Server() {
 
     var fetch = function(key) {
       var server = config.servers[key],
-          module = server.url.match(/^https:\/\//) ? https : http;
+          options = url.parse(server.url),
+          module = options.protocol === "https:" ? https : http;
 
-      module.get(server.url, function(res) {
+      module.get(options, function(res) {
         servers[key] = res.statusCode === 200;
         if(i < len) next();
       }).on('error', function() {
