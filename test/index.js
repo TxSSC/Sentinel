@@ -12,7 +12,7 @@ describe('Sentinel', function() {
     app = helpers.createApp();
 
     // Hack so we can poll servers before requests
-    setTimeout(done, 500);
+    setTimeout(done, 1800);
   });
 
   it('should return 200 status', function(done) {
